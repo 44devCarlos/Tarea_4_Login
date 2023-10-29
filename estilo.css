@@ -1,43 +1,327 @@
 /*Importe de las letras*/
-@import url();
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&family=Dancing+Script&family=Pixelify+Sans&display=swap");
 
 * {
-	font-family: "Courier New", Courier, monospace;
+	font-family: "Aref Ruqaa Ink", serif;
+	font-family: "Dancing Script", cursive;
+	font-family: "Pixelify Sans", sans-serif;
+	color: white;
 }
 body {
-	background-color: gray;
+	overflow: hidden;
+	background-image: url("img/fondo2.jpg");
+	background-size: cover;
+	background-position: center;
 	display: flex;
 	margin: 0;
 	padding: 0;
 	flex-direction: column;
 	height: 600px;
 }
+/*Fondo para el box*/
+.opaco {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 2.5%;
+	left: 44%;
+	background-color: black;
+	width: 50%;
+	height: 600px;
+	border-radius: 2em;
+	opacity: 0.6;
+	box-shadow: 0px 0px 10px gray;
+}
+.opaco2 {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	background-color: black;
+	width: 40%;
+	height: 250px;
+	border-radius: 1em;
+	opacity: 0.6;
+	box-shadow: 0px 0px 10px gray;
+	transition: all 1s ease;
+}
+.opaco2::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	width: 20px;
+	height: 20px;
+	left: -8px;
+	top: 89%;
+	background-color: black;
+	transform: skewX(45deg);
+}
+/*Estilo para el mensaje de bienvenida*/
+.mensajeBienvenida {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	text-align: center;
+	top: 8%;
+	left: 20%;
+	width: 40%;
+	height: 100px;
+	font-size: 25px;
+}
+/*Estilo para los mensajes de validacion*/
+.message-user,
+.message-password {
+	display: none;
+	position: absolute;
+	width: 50px;
+	text-align: center;
+}
+.message-user {
+	top: 45%;
+	left: 4%;
+}
+.message-password {
+	top: 63%;
+	left: 3.5%;
+}
+/*Box que contiene el texto y el login*/
 .box {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	top: 4%;
+	top: 1%;
+	left: 44%;
+	justify-content: center;
 	align-items: center;
+	width: 50%;
+	height: 600px;
+	font-size: 25px;
 }
+/*Una seccion para la imagen*/
 .boximage {
-	background-image: url("img/Paisaje.jpg");
+	position: absolute;
+	top: 2%;
+	left: 5%;
+	background-image: url("img/GojoSatoru.jpg");
 	background-size: cover;
 	background-position: center;
-	width: 50%;
-	height: 300px;
+	width: 30%;
+	height: 95%;
+	border-radius: 2em;
+	box-shadow: 0px 0px 10px gray;
 }
-#texto {
+.satoru {
+	overflow: visible;
+	display: none;
+	position: absolute;
+	top: 80%;
+	left: 5%;
+	object-fit: cover;
 	width: 20%;
+	height: 40%;
+	z-index: 1000;
 }
+.megumi {
+	overflow: visible;
+	display: none;
+	position: absolute;
+	top: 75%;
+	left: 64%;
+	object-fit: cover;
+	width: 20%;
+	height: 40%;
+	z-index: 1000;
+}
+.itadori {
+	overflow: visible;
+	display: none;
+	position: absolute;
+	top: 75%;
+	left: 81%;
+	object-fit: cover;
+	width: 20%;
+	height: 40%;
+	z-index: 1000;
+}
+/*El input de texto y contraseña*/
+#texto,
 #contraseña {
-	width: 20%;
+	color: white;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 10px 25px;
+	background: transparent;
+	max-width: 250px;
+	font-size: 20px;
 }
-.loginButton {
-	padding: 0.1em 0.25em;
-	width: 150px;
-	height: 50px;
-	background-color: #212121;
-	border: 1px solid #fff;
-	border-radius: 0.3em;
-	font-size: 12px;
+#texto:active,
+#contraseña:active {
+	box-shadow: 2px 2px 15px purple inset;
+}
+/*Boton de login*/
+button {
+	--button_radius: 0.75em;
+	--button_color: black;
+	--button_outline_color: white;
+	--shadow-color: #00000033;
+	--highlight-color: #ffffff33;
+	font-size: 17px;
+	font-weight: bold;
+	border: none;
+	border-radius: var(--button_radius);
+	background: linear-gradient(
+		to bottom right,
+		var(--highlight-color),
+		var(--shadow-color)
+	);
+	box-shadow: 0px 0px 16px var(--shadow-color),
+		-0px -0px 16px var(--highlight-color);
+	cursor: pointer;
+}
+
+.button_top {
+	display: block;
+	box-sizing: border-box;
+	border: 2px solid var(--button_outline_color);
+	border-radius: var(--button_radius);
+	padding: 0.75em 1.5em;
+	background: var(--button_color);
+	color: var(--button_outline_color);
+	transform: translateY(-0.2em);
+	transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+	transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+	transform: translateY(0);
+}
+/*El contenedor de la imagen del ojo*/
+.container {
+	--color: #a5a5b0;
+	--size: 25px;
+	display: flex;
+	top: -4%;
+	left: 26%;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	font-size: var(--size);
+	user-select: none;
+	fill: var(--color);
+}
+/*El contenedor del ojo abierto*/
+.container .eye {
+	position: absolute;
+	animation: keyframes-fill 0.5s;
+}
+/*El contenedor del ojo cerrado*/
+.container .eye-slash {
+	position: absolute;
+	animation: keyframes-fill 0.5s;
+	display: none;
+}
+/*Cuando el ojo abierto esta marcado*/
+.container input:checked ~ .eye {
+	display: none;
+}
+/*Cuando el ojo cerrado esta marcado*/
+.container input:checked ~ .eye-slash {
+	display: block;
+}
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+/*Animaciones para el ojo*/
+@keyframes keyframes-fill {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+}
+/*El loader*/
+.loader {
+	display: none;
+	transform: rotateZ(45deg);
+	perspective: 1000px;
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	color: blue;
+}
+.loader:before,
+.loader:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	border-radius: 50%;
+	transform: rotateX(70deg);
+	animation: 1s spin linear infinite;
+}
+.loader:after {
+	color: red;
+	transform: rotateY(70deg);
+	animation-delay: 0.4s;
+}
+/*La animacion del loader*/
+@keyframes rotate {
+	0% {
+		transform: translate(-50%, -50%) rotateZ(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotateZ(360deg);
+	}
+}
+
+@keyframes rotateccw {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(-360deg);
+	}
+}
+
+@keyframes spin {
+	0%,
+	100% {
+		box-shadow: 0.2em 0px 0 0px currentcolor;
+	}
+	12% {
+		box-shadow: 0.2em 0.2em 0 0 currentcolor;
+	}
+	25% {
+		box-shadow: 0 0.2em 0 0px currentcolor;
+	}
+	37% {
+		box-shadow: -0.2em 0.2em 0 0 currentcolor;
+	}
+	50% {
+		box-shadow: -0.2em 0 0 0 currentcolor;
+	}
+	62% {
+		box-shadow: -0.2em -0.2em 0 0 currentcolor;
+	}
+	75% {
+		box-shadow: 0px -0.2em 0 0 currentcolor;
+	}
+	87% {
+		box-shadow: 0.2em -0.2em 0 0 currentcolor;
+	}
 }
